@@ -64,6 +64,11 @@ export default function Kauppalista() {
 
   return (
     <View style={styles.container}>
+        {tuotteet.length > 0 && (
+          <TouchableOpacity style={styles.deleteSelectedButton} onPress={poistaValitutTuotteet}>
+            <Text style={styles.deleteButtonText}>Poista</Text>
+          </TouchableOpacity>
+        )}
       <Text style={styles.header}>Kauppalista</Text>
       <View> 
         <TextInput style={styles.input}
@@ -101,11 +106,6 @@ export default function Kauppalista() {
         />
       )}
       
-      {tuotteet.length > 0 && (
-        <TouchableOpacity style={styles.deleteSelectedButton} onPress={poistaValitutTuotteet}>
-          <Text style={styles.deleteButtonText}>Poista</Text>
-        </TouchableOpacity>
-      )}
     </View>
   );
 }
@@ -170,11 +170,9 @@ const styles = StyleSheet.create({
   deleteSelectedButton: {
     backgroundColor: '#FF6347',
     borderRadius: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    position: 'absolute',
-    top: 10,
-    right: 20,
+    marginLeft: 300,
+    paddingVertical: 8,
+    paddingHorizontal: 15,
   },
   deleteButtonText: {
     fontSize: 16,
